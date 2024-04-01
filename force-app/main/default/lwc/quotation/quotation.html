@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="見積管理スケジュール">
+        <lightning-layout>
+            <lightning-layout-item size="6" padding="around-small">
+                <lightning-card title="Create A New Account">
+                    <lightning-input name="ScheduleName__c" type="picklist" label="スケジュール名" options={options} onchange={si_QuotationSchedule__cScheduleName__cChangeHandler} ></lightning-input>
+                    <lightning-input name="StartDate__c" type="date" label="開始月" onchange={si_QuotationSchedule__cStartDate__cChangeHandler} ></lightning-input>
+                    <lightning-input name="EndDate__c" type="date" label="終了月" onchange={si_QuotationSchedule__cEndDate__cChangeHandler} ></lightning-input>
+
+                    <lightning-button label="作成" onclick={createsi_QuotationSchedule__c} variant="brand" ></lightning-button>
+                </lightning-card>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" padding="around-small">
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+
+</template>

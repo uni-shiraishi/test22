@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="QuotationSchedule" icon-name="standard:record">
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox
+                label="スケジュール名"
+                data-id="ScheduleName__c"
+                type="Picklist"
+                onchange={handleNameChange}
+                class="slds-var-m-bottom_x-small"
+            ></lightning-combobox>
+            <lightning-combobox
+                label="スケジュール名"
+                options={ScheduleName__cOptions.data}
+                value={si_QuotationSchedule__c.ScheduleName__c}
+                data-field-name="data-field-name"
+                onchange={handleNameChange}
+                class="slds-var-m-bottom_x-small"
+            ></lightning-combobox>
+            <lightning-input
+                label="開始月"
+                type="date"
+                data-id="StartDate__c"
+                onchange={handleNameChange}
+                class="slds-var-m-bottom_x-small"
+            ></lightning-input>
+            <lightning-input
+                label="終了月"
+                type="date"
+                data-id="EndDate__c"
+                onchange={handleNameChange}
+                class="slds-var-m-bottom_x-small"
+            ></lightning-input>
+            <lightning-button
+                label="スケジュール追加"
+                variant="brand"
+                onclick={createsi_QuotationSchedule__c}
+            ></lightning-button>
+        </div>
+    </lightning-card>
+</template>

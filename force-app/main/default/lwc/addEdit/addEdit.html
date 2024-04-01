@@ -1,0 +1,69 @@
+<template>
+    <div class="component">
+        <p class="title">上書きルールの設定</p>
+        <template if:true={hasError}>
+            <p class="error">{errorMsg}</p>
+        </template>
+        <div class="left">
+            <template iterator:it={rules}>
+                <lightning-combobox
+                    key={it.value.objValue1}
+                    class="select"
+                    label=""
+                    value={it.value.objValue1}
+                    placeholder="選択してください"
+                    options={objFeildList}
+                    onchange={changeObjFeildList1}
+                    data-index={it.index} >
+                </lightning-combobox>
+                <lightning-icon
+                    key={it.value.objValue1}
+                    class="arrow"
+                    icon-name="utility:forward" >
+                </lightning-icon>
+                <lightning-combobox
+                    key={it.value.objValue1}
+                    class="select"
+                    label=""
+                    value={it.value.objValue2}
+                    placeholder="選択してください"
+                    options={objFeildList}
+                    onchange={changeObjFeildList2}
+                    data-index={it.index} >
+                </lightning-combobox>
+                <template if:false={isDataSizeMin}>
+                    <lightning-button-icon
+                        key={it.value.objValue1}
+                        variant="bare"
+                        data-index={it.index}
+                        icon-name="utility:ban"
+                        onclick={clickDelete}
+                        alternative-text="delete"
+                        class="button" >
+                    </lightning-button-icon>
+                </template>
+                <template if:false={isDataSizeMax}>
+                    <template if:true={it.last}>
+                        <lightning-button-icon
+                            key={it.value.objValue1}
+                            variant="bare"
+                            data-index={it.index}
+                            icon-name="utility:new"
+                            onclick={clickAdd}
+                            alternative-text="add"
+                            class="button" >
+                        </lightning-button-icon>
+                    </template>
+                </template>
+                <br key={it.value.objValue1}>
+            </template>
+        </div>
+        <br>
+        <lightning-button
+            variant="brand"
+            label="保存"
+            onclick={clickSave}
+            disabled={noEdited} >
+        </lightning-button>
+    </div>
+</template>

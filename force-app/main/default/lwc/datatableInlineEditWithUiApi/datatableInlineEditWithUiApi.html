@@ -1,0 +1,20 @@
+<template>
+    <lightning-card
+        title="取引先責任者データ"
+        icon-name="custom:custom62"
+    >
+        <div class="slds-var-m-around_medium">
+            <template lwc:if={contacts.data}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={contacts.data}
+                    columns={columns}
+                    onsave={handleSave}
+                    draft-values={draftValues}
+                    hide-checkbox-column
+                >
+                </lightning-datatable>
+            </template>
+        </div>
+    </lightning-card>
+</template>
